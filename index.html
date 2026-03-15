@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+html,body{
+margin:0;
+padding:0;
+width:100%;
+height:100%;
+background:#0d1216;
+overflow:hidden;
+}
+
+/* esconde mobile inicialmente */
+.mobile{
+display:none;
+}
+
+/* iframe ocupa tela inteira */
+iframe{
+position:absolute;
+top:0;
+left:0;
+width:100vw;
+height:100vh;
+border:none;
+}
+
+/* camada invisível para capturar primeiro clique */
+#clickLayer{
+position:absolute;
+top:0;
+left:0;
+width:100vw;
+height:100vh;
+z-index:10;
+cursor:pointer;
+}
+
+/* celular */
+@media (max-width:768px){
+
+.desktop{
+display:none;
+}
+
+.mobile{
+display:block;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div id="clickLayer"></div>
+
+<!-- DESKTOP -->
+<div class="desktop">
+<iframe 
+src="https://www.canva.com/design/DAHECX8CjTM/GTjvpqRfOEeE_JFQkIwF6Q/view?embed"
+allowfullscreen>
+</iframe>
+</div>
+
+<!-- MOBILE -->
+<div class="mobile">
+<iframe 
+src="https://www.canva.com/design/DAHDaXytwPI/dM76u0NtwZVal4aSP9MOXg/view?embed"
+allowfullscreen>
+</iframe>
+</div>
+
+<audio id="musica" loop>
+<source src="JVKE_-_golden_hour_instrumental_(mp3.pm).mp3" type="audio/mpeg">
+</audio>
+
+<script>
+
+const layer = document.getElementById("clickLayer");
+const musica = document.getElementById("musica");
+
+layer.addEventListener("click", function(){
+    musica.play();
+    layer.style.display = "none";
+});
+
+</script>
+
+</body>
+</html>
